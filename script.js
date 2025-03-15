@@ -109,6 +109,7 @@ function playGame() {
     }
 }
 
-playGame();
+startButton = document.getElementById("startButton");
+startButton.addEventListener("click", playGame);
 
 // if you're seeing this... hola!

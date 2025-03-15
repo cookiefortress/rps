@@ -4,3 +4,17 @@
     margin: 10px;
     padding: 0px;
 }
+
+body {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#startButton {
+    color: whitesmoke;
+    background-color: green;
+    padding: 10px;
+    max-width: 300px;
+}
