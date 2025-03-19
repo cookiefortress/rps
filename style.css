@@ -1,8 +1,8 @@
 * {
-    color: green;
-    background-color: black;
     margin: 10px;
     padding: 0px;
+    font-family: Consolas;
+    font-size: 18px;
 }
 
 body {
@@ -10,11 +10,81 @@ body {
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    color: green;
+    background-color: black;
 }
 
-#startButton {
+#buttonsContainer {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+#rockButton,
+#paperButton,
+#scissorsButton {
     color: whitesmoke;
-    background-color: green;
     padding: 10px;
-    max-width: 300px;
+    min-width: 200px;
+    font-size: 20px;
+    border: 2px outset whitesmoke;
+}
+
+#rockButton {
+    background-color: grey;
+    color: black;
+}
+
+#paperButton {
+    background-color: gainsboro;
+    color: black;
+}
+
+#scissorsButton {
+    background-color: rgb(180, 14, 14);
+    color: black;
+}
+
+#rockButton:hover {
+    background-color: rgb(99, 99, 99);
+}
+
+#paperButton:hover {
+    background-color: rgb(241, 241, 241);
+}
+
+#scissorsButton:hover {
+    background-color: rgb(219, 8, 8);
+}
+
+#menuBox {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 40px;
+    align-items: center;
+    justify-content: space-around;
+    background-color: antiquewhite;
+    border: 3px outset green;
+    padding: 3px 20px;
+    width: 650px;
+    margin: 0;
+}
+
+#result,
+#playerScore,
+#computerScore {
+    background-color: antiquewhite;
+    font-size: 22px;
+    text-align: center;
+}
+
+#result {
+    width: 400px;
+}
+
+#subtext {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 665px;
+    margin: 0;
 }

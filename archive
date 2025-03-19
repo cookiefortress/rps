@@ -1,0 +1,54 @@
+// obtain the human's choice. The human's choice is converted to lower case so as to ensure the game accepts both "rock" and "RoCk"
+/*
+function getHumanChoice() {
+    let humanChoice = prompt("Rock, paper, or scissors? Type your answer in all lowercase!");
+
+    humanChoice = humanChoice.toLowerCase();
+
+    if (humanChoice == "rock" || humanChoice == "paper" || humanChoice == "scissors") {
+        return humanChoice;
+    }
+    else {
+        return getHumanChoice();
+    }
+}
+*/
+
+// play the game!
+/*
+function playGame() {
+    console.log("Get ready to play Rock Paper Scissor's against the world's most ingenius computer!")
+
+    let humanScore = 0;
+    let computerScore = 0;
+    
+    for (let i=0; i<=4; i++) {
+        result = playRound(getComputerChoice(), getHumanChoice());
+
+        if (result == "computerVictory") {
+            computerScore++;
+            console.log("The computer's score is now " + computerScore + " and your score remains at " + humanScore);
+        }
+        else if (result == "humanVictory") {
+            humanScore++;
+            console.log("Your score is now " + humanScore + " and the computer's score remains at " + computerScore);
+        }
+        else {
+            console.log("The scores remain the same!");
+        }
+    }
+
+    if (humanScore == computerScore) {
+        console.log("You and the computer tied the game! Try again!");
+    }
+    else if (humanScore > computerScore) {
+        console.log("You defeated the computer by a score of " + humanScore + " to " + computerScore + "! Congratulations!");
+    }
+    else if (humanScore < computerScore) {
+        console.log("The computer has defeated you by a score of " + computerScore + " to " + humanScore + "! Try again!")
+    }
+}
+    */
+
+// - when a button is clicked, call playRound() and use the respective button as an argument
+// - display the running score

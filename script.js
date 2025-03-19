@@ -21,95 +21,123 @@ function getComputerChoice() {
     }
 }
 
-// obtain the human's choice. The human's choice is converted to lower case so as to ensure the game accepts both "rock" and "RoCk"
-function getHumanChoice() {
-    let humanChoice = prompt("Rock, paper, or scissors? Type your answer in all lowercase!");
-
-    humanChoice = humanChoice.toLowerCase();
-
-    if (humanChoice == "rock" || humanChoice == "paper" || humanChoice == "scissors") {
-        return humanChoice;
-    }
-    else {
-        return getHumanChoice();
-    }
-}
-
 // play a round of rock paper scissors! The computer compares the choices and returns the result
 function playRound(computerChoice, humanChoice) {
 
-    let result;
+    displayResult = document.querySelector("#result");
 
     if (computerChoice == humanChoice) {
-        console.log("Draw! Nobody gets a point!");
+        displayResult.textContent = "Draw! Nobody gets a point!";
     }
     else if (computerChoice == "rock" && humanChoice == "paper") {
-        console.log("You win! Paper defeats rock!");
-        result = "humanVictory";
-        return result;
+        displayResult.textContent = "You win! Paper beats rock!";
+        return true; // true = player wins the round
     }
     else if (computerChoice == "rock" && humanChoice == "scissors") {
-        console.log("You lose! Rock defeats scissors!");
-        result = "computerVictory";
-        return result;
+        displayResult.textContent = "You lose! Rock beats scissors!";
+        return false; // false = computer wins the round
     }
     else if (computerChoice == "paper" && humanChoice == "rock") {
-        console.log("You lose! Paper defeats rock!");
-        result = "computerVictory";
-        return result;
+        displayResult.textContent = "You lose! Paper beats rock!";
+        return false; // false = computer wins the round
     }
     else if (computerChoice == "paper" && humanChoice == "scissors") {
-        console.log("You win! Scissors defeats paper!");
-        result = "humanVictory";
-        return result;
+        displayResult.textContent = "You win! Scissors beats paper!";
+        return true; // true = player wins the round
     }
     else if (computerChoice == "scissors" && humanChoice == "rock") {
-        console.log("You win! Rock defeats scissors!");
-        result = "humanVictory";
-        return result;
+        displayResult.textContent = "You win! Rock beats scissors!";
+        return true; // true = player wins the round
     }
     else if (computerChoice == "scissors" && humanChoice == "paper") {
-        console.log("You lose! Scissors defeats paper!");
-        result = "computerVictory";
-        return result;
+        displayResult.textContent = "You lose! Scissors beats paper!";
+        return false; // false = computer wins the round
     }
 }
 
-// play the game!
-function playGame() {
-    console.log("Get ready to play Rock Paper Scissor's against the world's most ingenius computer!")
+displayPlayerScore = document.querySelector("#playerScore");
+displayComputerScore = document.querySelector("#computerScore");
 
-    let humanScore = 0;
-    let computerScore = 0;
-    
-    for (let i=0; i<=4; i++) {
-        result = playRound(getComputerChoice(), getHumanChoice());
+let playerScore = 0;
+let computerScore = 0;
 
-        if (result == "computerVictory") {
-            computerScore++;
-            console.log("The computer's score is now " + computerScore + " and your score remains at " + humanScore);
-        }
-        else if (result == "humanVictory") {
-            humanScore++;
-            console.log("Your score is now " + humanScore + " and the computer's score remains at " + computerScore);
-        }
-        else {
-            console.log("The scores remain the same!");
+let rockButton = document.querySelector("#rockButton");
+rockButton.addEventListener("click", () => {
+    result = playRound(getComputerChoice(), "rock");
+    if (result == false) {
+        displayComputerScore.textContent = ++computerScore;
+
+        if (computerScore == 5) {
+            displayResult.textContent = "You lose! Scores are reset to 0.";
+            playerScore = 0;
+            computerScore = 0;
+            displayPlayerScore.textContent = playerScore;
+            displayComputerScore.textContent = computerScore;
         }
     }
+    else if (result == true) {
+        displayPlayerScore.textContent = ++playerScore;
 
-    if (humanScore == computerScore) {
-        console.log("You and the computer tied the game! Try again!");
+        if (playerScore == 5) {
+            displayResult.textContent = "You win! Scores are reset to 0.";
+            playerScore = 0;
+            computerScore = 0;
+            displayPlayerScore.textContent = playerScore;
+            displayComputerScore.textContent = computerScore;
+        }
     }
-    else if (humanScore > computerScore) {
-        console.log("You defeated the computer by a score of " + humanScore + " to " + computerScore + "! Congratulations!");
-    }
-    else if (humanScore < computerScore) {
-        console.log("The computer has defeated you by a score of " + computerScore + " to " + humanScore + "! Try again!")
-    }
-}
+});
 
-startButton = document.getElementById("startButton");
-startButton.addEventListener("click", playGame);
+let paperButton = document.querySelector("#paperButton");
+paperButton.addEventListener("click", () => {
+    result = playRound(getComputerChoice(), "paper");
+    if (result == false) {
+        displayComputerScore.textContent = ++computerScore;
 
-// if you're seeing this... hola!
+        if (computerScore == 5) {
+            displayResult.textContent = "You lose! Scores are reset to 0.";
+            playerScore = 0;
+            computerScore = 0;
+            displayPlayerScore.textContent = playerScore;
+            displayComputerScore.textContent = computerScore;
+        }
+    }
+    else if (result == true) {
+        displayPlayerScore.textContent = ++playerScore;
+
+        if (playerScore == 5) {
+            displayResult.textContent = "You win! Scores are reset to 0.";
+            playerScore = 0;
+            computerScore = 0;
+            displayPlayerScore.textContent = playerScore;
+            displayComputerScore.textContent = computerScore;
+        }
+    }
+});
+
+let scissorsButton = document.querySelector("#scissorsButton");
+scissorsButton.addEventListener("click", () => {
+    result = playRound(getComputerChoice(), "scissors");
+    if (result == false) {
+        displayComputerScore.textContent = ++computerScore;
+
+        if (computerScore == 5) {
+            displayResult.textContent = "You lose! Scores are reset to 0.";
+            playerScore = 0;
+            computerScore = 0;
+            displayPlayerScore.textContent = playerScore;
+            displayComputerScore.textContent = computerScore;
+        }
+    }
+    else if (result == true) {
+        displayPlayerScore.textContent = ++playerScore;
+
+        if (playerScore == 5) {
+            displayResult.textContent = "You win! Scores are reset to 0.";
+            playerScore = 0;
+            computerScore = 0;
+            displayPlayerScore.textContent = playerScore;
+            displayComputerScore.textContent = computerScore;
+        }
+    }
+});
